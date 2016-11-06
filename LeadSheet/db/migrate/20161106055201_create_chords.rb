@@ -9,6 +9,7 @@ class CreateChords < ActiveRecord::Migration
     	t.integer :subtract
     	t.integer :suspend
 
+      t.integer :beat_id
       t.timestamps null: false
     end
   end

@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Song.destroy_all!
-Section.destroy_all!
-Measure.destroy_all!
-Beat.destroy_all!
+# Song.delete_all!
+# Section.delete_all!
+# Measure.delete_all!
+# Beat.delete_all!
 
 
 song = Song.create!(name: "Test Song Number 1", composer: "Tim", transcriber: "Tom")
@@ -19,7 +19,7 @@ measure = Measure.create!(num_beats: 4, section_id: section.id)
 
 beat_one = Beat.create!(measure_id: measure.id)
 
-beat_one_chord = Chord.create!(number: 7, modifications: '#5b9', beat_id: beat.id)
+beat_one_chord = Chord.create!(number: 7, modifications: '#5b9', beat_id: beat_one.id)
 
 p song
 p section
