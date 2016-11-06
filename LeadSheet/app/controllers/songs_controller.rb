@@ -11,8 +11,9 @@ class SongsController < ApplicationController
 	end
 
 	def create
-		p params
-
+		@song = Song.new(name: params["songName"], composer: params["composer"], transcriber: params["transcriber"])
+		@song.save!
+		p @song
 		render json: {hello: 'hello'}		
 	end
 
