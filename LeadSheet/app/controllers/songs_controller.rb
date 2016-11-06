@@ -10,4 +10,10 @@ class SongsController < ApplicationController
 
 	end
 
+	def create
+		p params
+
+		render json: {hello: 'hello'}		
+	end
+
 end

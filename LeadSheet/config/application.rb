@@ -8,6 +8,13 @@ Bundler.require(*Rails.groups)
 
 module LeadSheet
   class Application < Rails::Application
+
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:8080',
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -22,5 +29,5 @@ module LeadSheet
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-  end
+end
 end
