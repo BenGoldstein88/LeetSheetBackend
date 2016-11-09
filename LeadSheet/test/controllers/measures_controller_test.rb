@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RootTest < ActiveSupport::TestCase
+class MeasuresControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

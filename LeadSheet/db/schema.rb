@@ -11,38 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106055505) do
+ActiveRecord::Schema.define(version: 20161106054759) do
 
-  create_table "beats", force: :cascade do |t|
-    t.integer  "measure_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "chords", force: :cascade do |t|
-    t.integer  "alternate_root_id"
-    t.integer  "number"
-    t.string   "quality"
-    t.string   "modifications"
-    t.integer  "add"
-    t.integer  "subtract"
-    t.integer  "suspend"
-    t.integer  "beat_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "measures", force: :cascade do |t|
+    t.integer  "measure_number"
     t.integer  "num_beats"
+    t.string   "chords",                      array: true
     t.integer  "section_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "roots", force: :cascade do |t|
-    t.integer  "chord_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "sections", force: :cascade do |t|

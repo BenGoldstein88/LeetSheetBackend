@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  get '/songs', to: 'songs#index'
+  get '/songs/index', to: 'songs#index'
+  get '/songs/:id', to: 'songs#show'
   resource :songs
+  resource :measures
 
   # Example resource route with options:
   #   resources :products do
