@@ -13,7 +13,7 @@ Measure.destroy_all
 # Root.destroy_all
 
 song = Song.create!(name: "Test Song Number 1", composer: "Tim", transcriber: "Tom")
-section = Section.create!(name: "Verse 1", song_id: song.id)
+section = Section.create!(name: "Verse 1", num_measures: 8, song_id: song.id)
 measure = Measure.create!(num_beats: 4, measure_number: 1, chords: ['C', nil, 'F', nil], section_id: section.id)
 
 letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
@@ -21,7 +21,7 @@ simple_accidentals = ['', '#', 'b']
 qualities = ['', 'maj', 'min', '+', 'dim']
 numbers = ['', '7', '9', '11', '13']
 suspensions = ['sus2', 'sus4']
-# additions =  ['add9', 'add11', 'add13']
+# additions =  ['add9's, 'add11', 'add13']
 # accidentals = ['#', 'b', '*', 'bb']
 
 chords = {}

@@ -14,11 +14,16 @@ class SongsController < ApplicationController
 		# @song = Song.find(params[:id])
 		@song = Song.first
 		@sections = @song.sections
+		@measures_map = {}
 		@sections.each do |section|
-		
+			@measures_map[section.id] = section.measures.to_a
 		end
 
-		data = {}
+		data = {
+			song: @song,
+			sections: @sections,
+			measures: @measures_map
+		}
 		# data = {
 		# 	song: @song,
 		# 	sections: @sections,
