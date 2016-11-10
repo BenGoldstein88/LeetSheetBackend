@@ -11,8 +11,8 @@ class SongsController < ApplicationController
 	end
 
 	def show
-		# @song = Song.find(params[:id])
-		@song = Song.first
+		@song = Song.find(params[:id])
+		# @song = Song.first
 		@sections = @song.sections
 		@measures_map = {}
 		@sections.each do |section|
