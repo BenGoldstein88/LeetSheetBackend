@@ -10,6 +10,21 @@ class SongsController < ApplicationController
 
 	end
 
+	def new_section
+		@song = Song.find(params[:id])
+		@sections = @song.sections
+		@new_section = Section.create!(name: "", num_measures: 8, song_id: @song.id)
+		@tempMeasure = Measure.create!(num_beats: 4, measure_number: 1, chords: ['C', '', '', ''], section_id: @new_section.id)
+		@sections.push(@new_section)
+
+		data = {
+			response: 'New Section Added to Song with id ' + @song.id.to_s
+		}
+
+		render json: data
+
+	end
+
 	def show
 		@song = Song.find(params[:id])
 		# @song = Song.first
