@@ -12,10 +12,13 @@ class SongsController < ApplicationController
 
 	def new_section
 		@song = Song.find(params[:id])
-		@sections = @song.sections
-		@new_section = Section.create!(name: "", num_measures: 8, song_id: @song.id)
-		@tempMeasure = Measure.create!(num_beats: 4, measure_number: 1, chords: ['C', '', '', ''], section_id: @new_section.id)
-		@sections.push(@new_section)
+		# @sections = @song.sections
+		@new_section = Section.new(name: "", num_measures: 8, song_id: @song.id)
+		@tempMeasure = Measure.new(num_beats: 4, measure_number: 1, chords: ['C', '', '', ''], section_id: @new_section.id)
+		@new_section.save!
+		@tempMeasure.save!
+		# @song.save!
+		# @sections.push(@new_section)
 
 		data = {
 			response: 'New Section Added to Song with id ' + @song.id.to_s
